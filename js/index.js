@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 
 // Створити новий клас RangeValidator, з полями from і to
 // (from повинен бути менше за to)
@@ -12,13 +12,11 @@
 // і повертає true, якщо значення входить в діапазон,
 // якщо не входить - повертає false
 
-
 class RangeValidator {
-
   /**
-   * 
-   * @param {number} from 
-   * @param {number} to 
+   *
+   * @param {number} from
+   * @param {number} to
    */
   constructor(from = FROM, to = TO) {
     this.from = from;
@@ -49,12 +47,16 @@ class RangeValidator {
     return this._to;
   }
 
-  getRang = () => [this._from, this._to];
+  //getRang = () => [this._from, this._to];
+  getRang() {
+    return [this._from, this._to];
+  }
 
-  isValidate = (value) =>
+  isValidate(value) {
     typeof value !== "number"
       ? new TypeError("value must be a number")
       : value >= this._from && value <= this._to;
+  }
 }
 
 try {
@@ -81,5 +83,6 @@ try {
   }
   console.log(error);
 }
+
 
 console.log("***********");
