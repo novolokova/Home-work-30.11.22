@@ -53,9 +53,10 @@ class RangeValidator {
   }
 
   isValidate(value) {
-    typeof value !== "number"
-      ? new TypeError("value must be a number")
-      : value >= this._from && value <= this._to;
+    if (typeof value !== "number") {
+      throw new TypeError("value must be a number");
+    }
+    return value >= this._from && value <= this._to;
   }
 }
 
@@ -83,6 +84,5 @@ try {
   }
   console.log(error);
 }
-
 
 console.log("***********");
